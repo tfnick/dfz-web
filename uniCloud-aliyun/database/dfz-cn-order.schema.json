@@ -1,0 +1,107 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+// 文档教程: https://uniapp.dcloud.io/uniCloud/schema.html
+{
+	"bsonType": "object",
+	"required": ["surname", "gender","birthday"],
+	"permission": {
+		"read": "doc.user_id == auth.uid",
+		"create": "auth.uid != null",
+		"update": "doc.user_id == auth.uid",
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"order_no": {
+			"description": "订单号",
+			"bsonType": "string"
+		},
+		"platform_order_no": {
+			"description": "平台订单号",
+			"bsonType": "string"
+		},
+		"platform": {
+			"description": "平台",
+			"bsonType": "string",
+			"enum": [{
+					"text": "未知",
+					"value": "-1"
+				},
+				{
+					"text": "淘宝",
+					"value": "taobao"
+				},
+				{
+					"text": "拼多多",
+					"value": "pdd"
+				}
+			]	
+		},
+		"user_id":{
+			"forceDefaultValue":{
+				"$env":"uid"
+			}
+		},
+		"surname":{
+			"label": "宝宝姓氏",
+			"description": "姓氏",
+			"bsonType": "string",
+			"maxLength": 2,
+			"errorMessage": {
+				"required": "{label}不能为空",
+				"maxLength": "{label}不能多于 {maxLength} 个字"
+			}
+		},
+		"gender": {
+			"label": "宝宝性别",
+			"description": "性别",
+			"bsonType": "string",
+			"enum": [
+				{
+					"text": "男宝",
+					"value": "M"
+				},
+				{
+					"text": "女宝",
+					"value": "F"
+				}
+			],
+			"errorMessage": {
+				"required": "{label}必选"
+			}
+		},
+		"birthday":{
+			"label": "宝宝生日",
+			"description": "年-月-日 时:分",
+			"bsonType": "string",
+			"errorMessage": {
+				"required": "{label}必选"
+			}
+		},
+		"status":{
+			"description": "订单状态，1 待处理； 2处理中 3 已处理；-1 重处理",
+			"bsonType": "int",
+			"enum": [
+				{"text": "待处理","value": 1},{"text": "处理中","value": 2},{"text": "已完成","value": 3},{"text": "重处理","value": -1}
+			],
+			"defaultValue": 1
+		},
+		"pay_status":{
+			"description": "订单状态，1 待支付； 2 已支付",
+			"bsonType": "int",
+			"enum": [
+				{"text": "待支付","value": 1},{"text": "已支付","value": 2}
+			],
+			"defaultValue": 1
+		},
+		"create_at": {
+			"bsonType": "timestamp",
+			"defaultValue": {
+				"$env": "now"
+			},
+			"description": "创建时间"
+		}
+	}
+	
+}

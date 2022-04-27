@@ -1,0 +1,67 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": "doc.user_id == auth.uid",
+		"create": "auth.uid != null",
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"user_id":{
+			"foreignKey": "uni-id-users._id",
+			"forceDefaultValue":{
+				"$env":"uid"
+			}
+		},
+		"order_id":{
+			"foreignKey": "dfz-cn-order._id"
+		},
+		"name":{
+			"bsonType": "string",
+			"description": "名字"
+		},
+		"surname":{
+			"bsonType": "string",
+			"description": "姓氏"
+		},
+		"full_name":{
+			"bsonType": "string",
+			"description": "姓名"
+		},
+		"order_batch_no":{
+			"bsonType": "int",
+			"description": "订单结果所属批次"
+		},
+		"wuxing":{
+			"bsonType": "string",
+			"description": "名字五行属性"
+		},
+		"gender": {
+			"description": "性别",
+			"bsonType": "string",
+			"enum": [
+				{
+					"text": "男宝",
+					"value": "M"
+				},
+				{
+					"text": "女宝",
+					"value": "F"
+				}
+			]	
+		},
+		"source":{
+			"bsonType": "string",
+			"description": "名字来源说明"
+		},
+		"sense":{
+			"bsonType": "string",
+			"description": "名字含义"
+		}
+	}
+}
