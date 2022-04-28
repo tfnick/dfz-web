@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<unicloud-db ref="udb-order" v-slot:default="{data, loading, error, options}" collection="dfz-cn-order">
+		<unicloud-db ref="udb-order" v-slot:default="{data, loading, error, options}" collection="dfz-order">
 			<view v-if="error">{{error.message}}</view>
 			<view v-else>
 				<uni-list>
@@ -9,7 +9,9 @@
 					thumb-size="lg" :rightText="statusText(item.status,item.order_no)" 
 					v-for="item in data" :key="item._id" 
 					:title="item.surname + '**'" 
-					:note="item.birthday" link></uni-list-item>
+					:note="item.birthday" link>
+					
+					</uni-list-item>
 				</uni-list>
 			</view>
 		</unicloud-db>
@@ -25,11 +27,13 @@
 		},
 		methods: {
 			statusText(val,order_no){
-				if(val == 2 ){
+				if(val == 3 ){
 					return order_no + "  已完成";
 				}else if(val == 1){
 					return order_no + "  待处理";
-				}else{
+				}if(val == 2){
+					return order_no + "  处理中";
+				}else if(val == -1){
 					return order_no + "  重处理";
 				}
 			},

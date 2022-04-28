@@ -197,7 +197,31 @@
             }
             
         }
-    ],
+,{
+    "path": "pages/dfz-order/add",
+    "style": {
+        "navigationBarTitleText": "新增"
+    }
+}
+,{
+    "path": "pages/dfz-order/edit",
+    "style": {
+        "navigationBarTitleText": "编辑"
+    }
+}
+,{
+    "path": "pages/dfz-order/list",
+    "style": {
+        "navigationBarTitleText": "列表"
+    }
+}
+,{
+    "path": "pages/dfz-order/detail",
+    "style": {
+        "navigationBarTitleText": "详情"
+    }
+}
+],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-starter",

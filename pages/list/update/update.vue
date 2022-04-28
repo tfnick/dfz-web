@@ -63,7 +63,7 @@
 			doSubmit(record) {
 				const db = uniCloud.database();
 				// 使用 clientDB 提交数据
-				db.collection('dfz-cn-order').doc(this.item._id).update(record).then((res) => {
+				db.collection('dfz-order').doc(this.item._id).update(record).then((res) => {
 					uni.showToast({
 						icon: 'none',
 						title: '提交成功'

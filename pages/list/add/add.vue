@@ -52,7 +52,7 @@
 			doSubmit(record) {
 				const db = uniCloud.database();
 				// 使用 clientDB 提交数据
-				db.action('dfz-order-add-action').collection('dfz-cn-order').add(record).then((res) => {
+				db.action('dfz-order-add-action').collection('dfz-order').add(record).then((res) => {
 					uni.showToast({
 						icon: 'none',
 						title: '提交成功'

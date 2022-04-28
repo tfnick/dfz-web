@@ -19,7 +19,7 @@ exports.main = async (event, context) => {
 		role: ['admin'], // 指定当前执行用户的角色为admin
 		permission: []
 	})
-	const orderQueryRes = await dbJQL.collection('dfz-cn-order').limit(1).get()// 直接执行数据库操作
+	const orderQueryRes = await dbJQL.collection('dfz-order').get()// 直接执行数据库操作
 	// const db = uniCloud.database();
 	// // 获取 `user` 集合的引用
 	// const orderQueryRes = await db.collection('dfz-cn-order').get();

@@ -43,6 +43,11 @@
 				"$env":"uid"
 			}
 		},
+		"wx_nickname":{
+			"label": "微信昵称",
+			"description": "微信昵称",
+			"bsonType": "string"
+		},
 		"surname":{
 			"label": "宝宝姓氏",
 			"description": "姓氏",
